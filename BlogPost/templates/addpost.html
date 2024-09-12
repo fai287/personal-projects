@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Add Post</title>
+{% endblock %}
+
+{% block body %}
+    <div class="ui center aligned container">
+        <br>
+        <h2 class="ui header">
+            Hey! What's on your mind?
+        </h2>
+        <!-- <div class="ui divider"></div> -->
+        <br>
+        <form class="ui form" action="/addpost" method="POST">
+            <div class="field">
+                <textarea name="title" id="title" cols="30" rows="2" placeholder="Give your Blog a Title!"></textarea>
+            </div>
+            <div class="field">
+                <textarea name="content" id="content" cols="30" rows="6" placeholder="What's your Blog About?"></textarea>
+            </div>
+            <div class="field">
+                <input type="text" name="author" id="author" placeholder="Who are you?">
+            </div>
+            <button class="ui primary button" type="submit">SUBMIT</button>
+        </form>
+        <br>
+        <a href="/posts" class="ui red button">CANCEL</a>
+    </div>
+{% endblock %}

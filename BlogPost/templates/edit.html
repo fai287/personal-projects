@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Edit Post</title>
+{% endblock %}
+
+{% block body %}
+    <div class="ui center aligned container">
+        <br>
+        <h2 class="ui header">
+            Edit your post! ID: {{post.id}}
+        </h2>
+        <!-- <div class="ui divider"></div> -->
+        <br>
+        <form class="ui form" action="/posts/edit/{{post.id}}" method="POST">
+            <div class="field">
+                <textarea name="title" id="title" cols="30" rows="2" placeholder="Give your Blog a Title!">
+                    {{post.title}}
+                </textarea>
+            </div>
+            <div class="field">
+                <textarea name="content" id="content" cols="30" rows="6" placeholder="What's your Blog About?">
+                    {{post.content}}
+                </textarea>
+            </div>
+            <div class="field">
+                <input type="text" name="author" id="author" value={{post.author}}>
+            </div>
+            <button class="ui primary button" type="submit">EDIT</button>
+        </form>
+        <br>
+        <a href="/posts" class="ui red button">CANCEL</a>
+    </div>
+{% endblock %}

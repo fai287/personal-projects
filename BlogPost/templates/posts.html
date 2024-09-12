@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Your Posts</title>
+{% endblock %}
+
+{% block body %}
+    <div class="ui center aligned container">
+        <br>
+        <div class="ui container">
+            <a class="ui primary button" href="/addpost">Post Something!</a>
+            <!-- <div class="ui divider"></div> -->
+            <!-- <br> -->
+            <a class="ui primary button" href="/home">Go Home</a>
+        </div>
+        
+        <br>
+        <h2 class="ui header">Your Posts</h1>
+        <br>
+        <div class="ui divider"></div>
+        <br>
+        {% for post in posts %}
+            <div class="ui center aligned container">
+                <div class="ui raised very padded text segment column">
+                    <h3 class="ui header">{{post.title}}</h3>
+                    <div class="ui divider"></div>
+                    {{post.content}}
+                    {% if post.author %}
+                        <div class="ui right aligned container">
+                            <em>By: ~{{post.author}}</em>
+                        </div>
+                    {% else %}
+                        <div class="ui right aligned container">
+                            <em>By: ~unknown</em>
+                        </div>
+                    {% endif %}
+                    <!-- <input type="hidden" id="id" value={{post.id}}> -->
+                    <a href="/posts/delete/{{post.id}}" class="circular ui icon button">
+                        <i class="icon trash"></i>
+                    </a>
+                    <a href="/posts/edit/{{post.id}}" class="circular ui icon button">
+                        <i class="icon edit"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            <!-- <div class="ui divider"></div> -->
+            <br>
+            <br>
+        {% endfor %}
+    </div>
+{% endblock %}
