@@ -1,0 +1,6 @@
+names:
+- dent
+nc: 1
+test: C:/Users/hp/Desktop/Aero-dents/datasets\test/images
+train: C:/Users/hp/Desktop/Aero-dents/datasets\train/images
+val: C:/Users/hp/Desktop/Aero-dents/datasets\valid/annotated_images

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #map{
+            height: 900px;
+            width: 100%;
+        }
+    </style>
+    <title>My Simpo Map</title>
+</head>
+<body>
+    <h1>Wallace Simpo Gal</h1>
+    <div id="map"></div>
+    <script>
+        function initMap(){
+            // Our coordinates 
+            var our_coordinates = {lat:-0.39161,lng:36.95918}
+
+            // Create the Map options 
+            var options  = {
+                zoom: 19,
+                center: our_coordinates
+            }
+
+            // Create the Map Variable 
+            var map = new google.maps.Map(
+                document.getElementById("map"),
+                options
+            );
+
+            // Add a marker ;)
+            // To change marker icon, modify the icon value in the object
+            // yaani {icon: 'httsp://url-ya-image.png'}
+            var marker = new google.maps.Marker({
+                position: our_coordinates,
+                map: map
+            });
+
+            // To add information on clicking the marker 
+            // Yaan info window yenye inadisplay ukifinya ma? Marker.
+            // Dunga html apo ndani
+            var infoWindow = new google.maps.InfoWindow({
+                content: "<h1> The School of Progress. </h1>"
+            });
+
+            // Add a click listener and display the infoWindow on click 
+            // Yaani basically ukitaka idisplay info window unado ivi ...
+            marker.addListener('click', function(){
+                infoWindow.open(map, marker)
+            });
+
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4qyf5jX1K-f91vR41INiMFen4xLWk5Yk&callback=initMap"></script>
+</body>
+</html>

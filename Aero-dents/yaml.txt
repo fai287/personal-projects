@@ -1,0 +1,2 @@
+#I had to create the .yaml file extension or rather create yaml manifest templates 
+at this point didnt know exactly what to do but am not fraid to fail. am I?
